@@ -44,11 +44,26 @@ public class ContaBancariaTest {
         assertEquals(30,contaBancaria.getSaldo());
     }
 
+//    @Test
+//    public void test_alterar_titular() {
+//        assertTrue(contaBancaria.alterarTitular("gabrielzinho da quebrada"));
+//        assertFalse(contaBancaria.alterarTitular(" "));
+//        assertFalse(contaBancaria.alterarTitular(null));
+//    }
+
     @Test
     public void test_alterar_titular() {
-        assertTrue(contaBancaria.alterarTitular("gabrielzinho da quebrada"));
+        // Altera titular com sucesso
+        assertTrue(contaBancaria.alterarTitular("Gabrielzinho da Quebrada"));
+        assertEquals("Gabrielzinho da Quebrada", contaBancaria.getTitular());
+
+        // Tentativa de alterar titular com valor inválido (espaços em branco)
         assertFalse(contaBancaria.alterarTitular(" "));
+        assertEquals("Gabrielzinho da Quebrada", contaBancaria.getTitular());
+
+        // Tentativa de alterar titular com valor inválido (nulo)
         assertFalse(contaBancaria.alterarTitular(null));
+        assertEquals("Gabrielzinho da Quebrada", contaBancaria.getTitular());
     }
 
     @Test
